@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    table,th,td {
+        border: 2px solid black;
+    }
+</style>
+<body>
+{{ peoples }}
+<p>this is the paragraph in html file</p>
+<table>
+  <tr>
+    <th>SR. no</th>
+    <th>Name</th>
+    <th>age</th>
+    <th>can vote</th>
+  </tr>
+    {% for people in peoples %}
+  <tr>
+    <td>{{ forloop.counter }}</td>
+    <td>{{ people.name }}</td>
+    <td>{{ people.age }}</td>
+    <td>
+        {% if people.age >= 18 %}
+        <p>can vote</p>
+        {% else %}
+        <p>cannot vote</p>
+        {% endif %}
+    </td>
+  </tr>
+    {% endfor %}
+  
+</table>
+</body>
+</html>
